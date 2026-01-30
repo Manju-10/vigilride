@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* VigilRide Brand Colors - Deep Blue Tech Theme */
+    --background: 210 40% 98%;
+    --foreground: 210 50% 10%;
+
+    /* Deep Blue - Primary brand color */
+    --primary: 212 73% 13%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Navy Blue - Secondary surfaces */
+    --secondary: 209 65% 18%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Electric Blue - Accent & interactive elements */
+    --accent: 198 91% 54%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Neon Green - Success & active states */
+    --success: 151 76% 57%;
+    --success-foreground: 210 50% 10%;
+    
+    /* Warning Yellow */
+    --warning: 45 100% 51%;
+    --warning-foreground: 210 50% 10%;
+    
+    /* Danger Red */
+    --danger: 0 100% 62%;
+    --danger-foreground: 0 0% 100%;
+
+    /* Light Grey - Subtle backgrounds */
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 10% 45%;
+
+    /* Card surfaces with glassmorphism */
+    --card: 0 0% 100%;
+    --card-foreground: 210 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 50% 10%;
+
+    --destructive: 0 100% 62%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 198 91% 54%;
+
+    --radius: 1rem;
+
+    /* Sidebar */
+    --sidebar-background: 212 73% 13%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 198 91% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 209 65% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 209 50% 22%;
+    --sidebar-ring: 198 91% 54%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(212, 73%, 13%), hsl(209, 65%, 18%));
+    --gradient-accent: linear-gradient(135deg, hsl(198, 91%, 54%), hsl(151, 76%, 57%));
+    --gradient-danger: linear-gradient(135deg, hsl(0, 100%, 62%), hsl(0, 85%, 50%));
+    
+    /* Glows & Shadows */
+    --glow-accent: 0 0 40px hsl(198 91% 54% / 0.3);
+    --glow-success: 0 0 30px hsl(151 76% 57% / 0.4);
+    --glow-danger: 0 0 40px hsl(0 100% 62% / 0.5);
+    --shadow-elevated: 0 10px 40px -10px hsl(212 73% 13% / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 212 73% 13%;
+    --foreground: 0 0% 100%;
+
+    --primary: 212 73% 13%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 209 65% 18%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 198 91% 54%;
+    --accent-foreground: 0 0% 100%;
+    
+    --success: 151 76% 57%;
+    --success-foreground: 210 50% 10%;
+    
+    --warning: 45 100% 51%;
+    --warning-foreground: 210 50% 10%;
+    
+    --danger: 0 100% 62%;
+    --danger-foreground: 0 0% 100%;
+
+    --muted: 209 50% 22%;
+    --muted-foreground: 210 20% 70%;
+
+    --card: 209 65% 18%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 209 65% 18%;
+    --popover-foreground: 0 0% 100%;
+
+    --destructive: 0 100% 62%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 209 50% 22%;
+    --input: 209 50% 22%;
+    --ring: 198 91% 54%;
+
+    --sidebar-background: 212 73% 10%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 198 91% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 209 65% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 209 50% 22%;
+    --sidebar-ring: 198 91% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism effect */
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+  }
+  
+  /* Tech glow effects */
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  
+  .glow-success {
+    box-shadow: var(--glow-success);
+  }
+  
+  .glow-danger {
+    box-shadow: var(--glow-danger);
+  }
+  
+  /* Gradient backgrounds */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .bg-gradient-danger {
+    background: var(--gradient-danger);
+  }
+  
+  /* Elevated shadow */
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  /* Status indicators */
+  .status-dot {
+    @apply w-2 h-2 rounded-full inline-block;
+  }
+  
+  .status-online {
+    @apply bg-success animate-pulse;
+  }
+  
+  .status-offline {
+    @apply bg-muted-foreground;
+  }
+  
+  .status-alert {
+    @apply bg-danger animate-pulse;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fingerprint-scan {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out;
+}
+
+.animate-fingerprint {
+  animation: fingerprint-scan 1.5s ease-in-out infinite;
+}
